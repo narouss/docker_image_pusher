@@ -58,11 +58,11 @@ jobs:
       run: |
         echo $GHCR_PASSWORD | docker login ghcr.io -u $GHCR_USERNAME --password-stdin
 
-    - name: Pull and Push Image
+    - name: Pull and Push Image from Aliyun
       run: |
         set -e
-        IMAGE_NAME="ghcr.io/librespeed/speedtest:latest"
-        NEW_IMAGE="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/librespeed/speedtest:latest"
+        IMAGE_NAME="registry.cn-hangzhou.aliyuncs.com/google_containers/kube-state-metrics:v2.0.0"
+        NEW_IMAGE="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/kube-state-metrics:v2.0.0"
 
         echo "Pulling image $IMAGE_NAME"
         docker pull $IMAGE_NAME
